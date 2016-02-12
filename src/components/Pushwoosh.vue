@@ -20,7 +20,7 @@
       <div class="box-body">
 
         <!-- Conversations are loaded here -->
-          <div class="direct-chat-messages" v-for="nortifications as notifications">
+          <div class="direct-chat-messages" v-for="nortification as notification">
             <!-- Message. Default to the left -->
             <div class="direct-chat-msg">
               <div class="direct-chat-info clearfix">
@@ -59,7 +59,6 @@
 
 
 
-
   </div>
 </template>
 
@@ -72,17 +71,16 @@ export default {
       // preserves its current state and we are modifying
       // its initial state.
       msg: 'Hello World!',
-      notification_message : "Notification per defecte",
-      notifications : [
-        {message: "Foo", date: "now" },
-        {message: "Bar", date: "now" }
+      notification : "Notification per defecte",
+      notifications : notificationStorage.fetch()
       ]
     }
   },
   methods: {
     notify: function(){
       console.debug("Click OK!");
-      console.debug(notification)
+      console.debug(notification);
+      this.notifications.push({message: "Foo", date: "now" });
 //      $.ajax({
 //        type: "POST",
 //        url: "https://cp.pushwoosh.com/json/1.3/createMessage",
