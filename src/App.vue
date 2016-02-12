@@ -13,7 +13,7 @@ import Pushwoosh from './components/Pushwoosh.vue'
 
 export default {
   components: {
-    pushwoosh
+    Pushwoosh
   }
 }
 </script>
