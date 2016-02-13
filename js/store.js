@@ -4,12 +4,12 @@
 
     var STORAGE_KEY = 'PUSHWOOSH_NOTIFICATIONS';
 
-    exports.notificationStorage = {
+    exports.notificationsStorage = {
         fetch: function () {
             return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
         },
-        save: function (todos) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+        save: function (notifications) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(notifications));
         }
     };
 

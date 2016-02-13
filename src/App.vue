@@ -9,17 +9,16 @@
 </template>
 
 <script>
-import Pushwoosh from './components/Pushwoosh.vue'
-
-export default {
-  components: {
-    Pushwoosh
+  import Pushwoosh from './components/Pushwoosh.vue'
+  export default {
+    components: {
+      Pushwoosh
+    }
   }
-}
 </script>
 
 <style>
-body {
-  font-family: Helvetica, sans-serif;
-}
+  body {
+    font-family: Helvetica, sans-serif;
+  }
 </style>
