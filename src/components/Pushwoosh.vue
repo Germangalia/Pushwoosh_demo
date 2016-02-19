@@ -102,19 +102,25 @@
         this.notifyAjax();
       },
       notifyAjax: function () {
+
         $.ajax({
           type: "POST",
-          url: "https://cp.pushwoosh.com/json/1.3/createMessage",
+          url: "https://onesignal.com/api/v1/notifications?app_id=60d7c430-7c02-4499-9140-3d0c6cba98f0",
+          beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', 'Basic YmRlYjk2M2ItODRkMS00ODg5LTg3NDAtZjUzMmU2OGVmYTky'),
+                    xhr.setRequestHeader('Content-Type', 'application/json')
+          },
           data: JSON.stringify({
-            "request": {
-              "application": "4FC89B6D14A655.46488481",
-              "auth": "mTdns0j6qLYPa/A5htmD46xVyoxdVQfPBz7NRqYYHz9PhvKXgJtOkAY+yo0YTXDEoztQAJFY0JmXnd89tf59",
-              "notifications": [{
-                "send_date": "now",
-                "ignore_user_timezone": true,
-                "content": this.notification_message
-              }]
-            }
+            "app_id": "60d7c430-7c02-4499-9140-3d0c6cba98f0",
+            "included_segments": ["All"],
+            "data": {"foo": "bar"},
+            "content_available":true,
+            "contents": {"en": this.notification_message,"es": this.notification_message},
+            "headings": {"en": this.notification_message,"es": this.notification_message},
+            "isAndroid": true,
+            "android_sound": "notification",
+            "android_led_color": "FF0000FF",
+            "android_visibility": 1
           }),
           dataType: "json"
         }).done(function (data) {
